@@ -3,8 +3,7 @@ rm(list = ls())
 setwd("C:/Users/asbarros/Desktop/Bioinfo/RNASeq_Set17/R_161118")
 source("DESeq_Anal.R")
 
-setwd("21_08_results/")
-writeLines(capture.output(sessionInfo()),paste0("environments/21_08_NoLPS_SessionInfo_",Sys.Date(),".txt",sep=""))
+writeLines(capture.output(sessionInfo()),paste0("environments/NoLPS_SessionInfo_",Sys.Date(),".txt",sep=""))
 
 ################################### No LPS Conditions #######################################
 res1<-results(dm,contrast=c("group","epino_LPS","ctrlno_LPS"),alpha = 0.05)
@@ -92,8 +91,7 @@ rm(list = ls())
 setwd("C:/Users/asbarros/Desktop/Bioinfo/RNASeq_Set17/R_161118")
 source("DESeq_Anal.R")
 
-setwd("21_08_results/")
-writeLines(capture.output(sessionInfo()),paste0("environments/21_08_LPS_SessionInfo_",Sys.Date(),".txt",sep=""))
+writeLines(capture.output(sessionInfo()),paste0("environments/LPS_SessionInfo_",Sys.Date(),".txt",sep=""))
 
 
 res1<-results(dm,contrast=c("group","epiLPS","ctrlLPS"),alpha=0.05)
