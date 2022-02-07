@@ -1,9 +1,7 @@
-# 'Host-dependent induction of disease tolerance to infection by tetracycline antibiotics' - Colaço *et al.*, 2019
+# 'DNA damage independent inhibition of NF-kB transcription by anthracyclines' - Chora *et al.*, 2022
 ## RNA-Seq Analysis
 
-This analysis is part of this published pre-print: https://www.biorxiv.org/content/10.1101/833269v1
-
-This folder contains the files corresponding to the **Lung Dataset:** Dataset comparing Gene Expression in the lung from mice injected with PBS and Doxycycline, non-infected and infected, at 8h;
+This analysis is part of this published pre-print: https://www.biorxiv.org/content/10.1101/2020.04.27.065003v2
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 The folders contains the following subfolders:
