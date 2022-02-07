@@ -1,18 +1,12 @@
-# 'Tetracycline Antibiotics Induce Host-Dependent Disease Tolerance to Infection' - Colaço *et al.*, 2020
+# 'DNA damage independent inhibition of NF-κB transcription by anthracyclines' - Chora *et al.*, 2022
 ## RNA-Seq Analysis
 
-This analysis is part of this published pre-print: https://www.biorxiv.org/content/10.1101/833269v1
+This analysis is part of this published pre-print: https://www.biorxiv.org/content/10.1101/2020.04.27.065003v2
 
-This folder contains three datasets:
-
-**Lung Dataset:** Dataset comparing Gene Expression in the lung from mice injected with PBS and Doxycycline, non-infected and infected, at 8h;
-
-**Liver @8h Dataset:** Dataset comparing Gene Expression in the liver from mice injected with PBS and Doxycycline, non-infected and infected, at 8h;
-
-**Liver @20h Dataset:** Dataset comparing Gene Expression in the liver from mice injected with PBS, Doxycycline, Phenphormin and Epirubicin,  non-infected and infected, at 30h;
+This repository contains transcriptomic data from murine Bone Marrow Derived Macrophages (BMDM's) stimulated with LPS and treated with PBS, Epirubicin and Aclarubicin
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-All datasets were processed the following way:
+All samples were processed the following way:
 
 #### Quality Control
 This quality control is done using the program **Fastqc** (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/); considering this program produces a report per file, we can also use a program to merge all the reports into one - **MultiQC** (https://multiqc.info/).
@@ -40,13 +34,13 @@ Then, you can assess it by just using:
 cd $gen_index
 ```
 
-To align our samples, we need the reference genome indexes, that are just the corresponding reference genome (.fasta) and its corresponding annotation (.gtf). We used different versions for the datasets: While for the first two datasets, we used version 97, the version 99 was used for the last dataset.
+To align our samples, we need the reference genome indexes, that are just the corresponding reference genome (.fasta) and its corresponding annotation (.gtf). We used the genome and correspondig annotation for the version 89.
 
 ```
-wget ftp://ftp.ensembl.org/pub/release-97/fasta/mus_musculus/dna/Mus_musculus.GRCm38.dna.primary_assembly.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-89/fasta/mus_musculus/dna/Mus_musculus.GRCm38.dna.primary_assembly.fa.gz
 gunzip Mus_musculus.GRCm38.dna.primary_assembly.fa.gz
 
-wget ftp://ftp.ensembl.org/pub/release-97/gtf/mus_musculus/Mus_musculus.GRCm38.97.gtf.gz
+wget ftp://ftp.ensembl.org/pub/release-89/gtf/mus_musculus/Mus_musculus.GRCm38.89.gtf.gz
 gunzip Mus_musculus.GRCm38.97.gtf.gz
 ```
  Now that we have the files, we proceed to use STAR with the option of  `genomeGenerate`
