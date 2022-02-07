@@ -79,4 +79,4 @@ rm -rf ../aligned/$f*.bam; done
 
 This cycle will perform the alignment and perform the corresponding report for the BAM file.
 
-After checking the qualimap report and the log.final.out file for each sample if everything went as expected during the alignment, we proceeded to the R Analysis. The steps corresponding to this analysis are stored separately in each folder.
+After checking the qualimap report and the log.final.out file for each sample if everything went as expected during the alignment, we proceeded to the R Analysis. The steps corresponding to this analysis are stored in the 'R Analysis' folder.
