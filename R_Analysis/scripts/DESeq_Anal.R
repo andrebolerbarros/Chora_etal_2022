@@ -41,7 +41,7 @@ for (i in 2:length(outfile)) {
 colnames(tab)<-gsub("^.*(Sample_[0-9]+).*","\\1",names(outfile))
 
 #import the design matrix
-design<-read.csv2("sampleTable.csv",header=T,row.names = 1,sep=",")
+design<-read.csv2("metadata/sampleTable.csv",header=T,row.names = 1,sep=",")
 design$group<-factor(paste0(design$Drug,design$LPS)) #grouping/combinating variables
 
 all(rownames(design)==colnames(tab)) #check if the rownames of design match exactly w/ the column names
