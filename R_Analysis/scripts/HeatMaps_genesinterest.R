@@ -3,8 +3,6 @@ library(org.Mm.eg.db)
 library(grid)
 
 setwd("C:/Users/asbarros/Desktop/Bioinfo/RNASeq_Set17/R_161118")
-setwd("04_01_results/")
-
 
 genes_interest<-c("Tnf","Il12b","Il6","Il1b","Il10","Cxcl10","Ccl2","Ccl5","Nos2","Ifnb1")
 
