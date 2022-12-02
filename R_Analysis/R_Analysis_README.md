@@ -5,7 +5,7 @@ This analysis is part of this published pre-print: https://www.biorxiv.org/conte
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 The folders contains the following subfolders:
-- *gene_counts:* the gene counts files produced by the alignment step using STAR, one for each sample;
+- *gene_count:* a .tab file, with the gene counts produced by the alignment step using STAR;
 - *metadata:* the file with the information for the samples;
 - *scripts:* the several scripts used for the analysis;
 - *SessionInfo:* one file with the information regarding the information of the R session (R version, packages versions, etc.).
