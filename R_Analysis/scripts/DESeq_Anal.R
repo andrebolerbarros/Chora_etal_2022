@@ -14,31 +14,8 @@ setwd("C:/Users/asbarros/Desktop/Bioinfo/RNASeq_Set17/R_161118")
 
 writeLines(capture.output(sessionInfo()),paste0("SessionInfo_",Sys.Date(),".txt",sep=""))
 
-#Import the files
-gc_tab<-"gene_count/"
-file.names<-paste(gc_tab,dir(gc_tab,pattern="tab"),sep="")
-
-outfile<-list()
-for (i in file.names) {
-  outfile[[i]]<-read.table(i,row.names=1)
-}
-
-#Remove the first four lines of the files, that contain unmappeds, dubious, and other artifacts
-for (i in 1:length(outfile)) {
-  outfile[[i]]<-outfile[[i]][-c(1:4),]
-}
-
-#Select one of the columns to use as the expression data (normally, select the one w/ most reads)
-tab<-data.frame(outfile[[1]][,3])
-rownames(tab)<-rownames(outfile[[1]])
-
-for (i in 2:length(outfile)) {
-  tab[,i]<-outfile[[i]][,3]
-  rownames(tab)<-rownames(outfile[[1]])
-}
-
-#define the column names
-colnames(tab)<-gsub("^.*(Sample_[0-9]+).*","\\1",names(outfile))
+#import the gene counts tab
+tab<-read.table("gene_counts.tab")
 
 #import the design matrix
 design<-read.csv2("metadata/sampleTable.csv",header=T,row.names = 1,sep=",")
