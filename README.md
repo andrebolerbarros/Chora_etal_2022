@@ -1,7 +1,7 @@
 # 'DNA damage independent inhibition of NF-κB transcription by anthracyclines' - Chora *et al.*, 2022
 ## RNA-Seq Analysis
 
-This analysis is part of this published pre-print: https://www.biorxiv.org/content/10.1101/2020.04.27.065003v2
+This analysis is part of this published paper: https://elifesciences.org/articles/77443 (DOI: https://doi.org/10.7554/eLife.77443)
 
 This repository contains transcriptomic data from murine Bone Marrow Derived Macrophages (BMDM's) stimulated with LPS and treated with PBS, Epirubicin and Aclarubicin
 
@@ -41,12 +41,12 @@ wget ftp://ftp.ensembl.org/pub/release-89/fasta/mus_musculus/dna/Mus_musculus.GR
 gunzip Mus_musculus.GRCm38.dna.primary_assembly.fa.gz
 
 wget ftp://ftp.ensembl.org/pub/release-89/gtf/mus_musculus/Mus_musculus.GRCm38.89.gtf.gz
-gunzip Mus_musculus.GRCm38.97.gtf.gz
+gunzip Mus_musculus.GRCm38.89.gtf.gz
 ```
  Now that we have the files, we proceed to use STAR with the option of  `genomeGenerate`
 
 ```
-STAR --runThreadN 10 --runMode genomeGenerate --genomeDir $gen_index --genomeFastaFiles $gen_index/Mus_musculus.GRCm38.dna.primary_assembly.fa --sjdbGTFfile $gen_index/Mus_musculus.GRCm38.97.gtf 
+STAR --runThreadN 10 --runMode genomeGenerate --genomeDir $gen_index --genomeFastaFiles $gen_index/Mus_musculus.GRCm38.dna.primary_assembly.fa --sjdbGTFfile $gen_index/Mus_musculus.GRCm38.89.gtf 
 
 ```
 Options explained:
@@ -55,7 +55,7 @@ Options explained:
 - `--runMode genomeGenerate` Argument for the program to know what is going to run
 - `--genomeDir $gen_index/` Path to the genome indexes
 - `--genomeFastaFiles $gen_index/Mus_musculus.GRCm38.dna.primary_assembly.fa` Path to the fasta file of the reference genome
-- `--sjdbGTFfile $gen_index/Mus_musculus.GRCm38.95.gtf` Path to the gtf file of the reference genome
+- `--sjdbGTFfile $gen_index/Mus_musculus.GRCm38.89.gtf` Path to the gtf file of the reference genome
 
 Afterwards, you can proceed to the alignment step. We are going to use the program qualimap (http://qualimap.bioinfo.cipf.es/) & the log files of STAR to assess the quality of this step.
 
@@ -72,8 +72,8 @@ export gen_index=../../gen_index #this step helps in case of using a different w
 ```
 ```
 for f in *.txt.gz;
-do STAR --genomeDir $gen_index --readFilesIn $f --readFilesCommand zcat --sjdbGTFfile $gen_index/Mus_musculus.GRCm38.97.gtf --quantMode GeneCounts --runThreadN 24 --outFileNamePrefix ../aligned/"$f"_ --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx;
-qualimap rnaseq -bam ../aligned/"$f"_*.bam -gtf $gen_index/Mus_musculus.GRCm38.97.gtf -outdir ../qualimap_aligned/$f --java-mem-size=40G;
+do STAR --genomeDir $gen_index --readFilesIn $f --readFilesCommand zcat --sjdbGTFfile $gen_index/Mus_musculus.GRCm38.89.gtf --quantMode GeneCounts --runThreadN 24 --outFileNamePrefix ../aligned/"$f"_ --outSAMtype BAM SortedByCoordinate --outReadsUnmapped Fastx;
+qualimap rnaseq -bam ../aligned/"$f"_*.bam -gtf $gen_index/Mus_musculus.GRCm38.89.gtf -outdir ../qualimap_aligned/$f --java-mem-size=40G;
 rm -rf ../aligned/$f*.bam; done
 ```
 
